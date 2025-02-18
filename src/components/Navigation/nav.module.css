@@ -1,0 +1,16 @@
+.link {
+  text-decoration: none;
+  color: white;
+  font-size: 3rem;
+}
+
+.link:hover {
+  color: var(--third-color);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background-color: var(--main-color);
+}
