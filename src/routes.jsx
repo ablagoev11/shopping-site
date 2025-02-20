@@ -1,6 +1,6 @@
-import Landing from "./pages/Landing/Landing";
+import CategoryPage from "./pages/Category/CategoryPage";
 import Layout from "./pages/Layout";
-import Product from "./pages/Product/Product";
+import ProductPage from "./pages/Product/ProductPage";
 
 const routes = [
   {
@@ -8,12 +8,12 @@ const routes = [
     element: <Layout />,
     children: [
       {
-        index: true,
-        element: <Landing />,
+        path: "/category/:category",
+        element: <CategoryPage />,
       },
-      {},
+      { index: true, element: <ProductPage /> },
     ],
   },
-  { path: "product/:id", element: <Product /> },
+  { path: "product/:id", element: <ProductPage /> },
 ];
 export default routes;

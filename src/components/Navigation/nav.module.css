@@ -1,11 +1,11 @@
 .link {
   text-decoration: none;
-  color: white;
+  color: var(--third-color);
   font-size: 3rem;
 }
 
 .link:hover {
-  color: var(--third-color);
+  color: white;
 }
 
 .nav {

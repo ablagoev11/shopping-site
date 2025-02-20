@@ -1,22 +1,27 @@
 @import "../../index.css";
+
 .panel-container {
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 99;
   background-color: rgba(0, 0, 0, 0.5);
+  margin: 0;
 }
 
 .drawer {
-  position: absolute;
+  position: fixed;
   max-width: 300px;
   width: 100%;
   background-color: var(--main-color);
   top: 0;
   z-index: 100;
   padding: 6px;
+  will-change: opacity, transform;
+  transition: opacity 0.5s, transform 0.5s;
+  opacity: 0;
 }
 
 .panel-button {
@@ -53,31 +58,29 @@
   composes: drawer;
   left: 0;
   transform: translateX(-100%);
-  transition: transform 0.5s;
 }
 .right {
   composes: drawer;
   right: 0;
   transform: translateX(100%);
-  transition: transform 0.5s;
 }
 
 .full-left {
   composes: left;
-  height: 100%;
+  height: 99%;
 }
 
 .full-right {
   composes: right;
-  height: 100%;
+  height: 99%;
 }
-
 .closed {
   transform: translateX(0%);
+  opacity: 1;
 }
 
 .closed-panel {
-  display: none;
+  opacity: 0;
   transition: background-color 0.5s;
-  background-color: transparent;
+  pointer-events: none;
 }
