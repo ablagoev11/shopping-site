@@ -8,7 +8,7 @@ const routes = [
     element: <Layout />,
     children: [
       {
-        path: "/category/:category",
+        path: "/category/:id",
         element: <CategoryPage />,
       },
       { index: true, element: <ProductPage /> },

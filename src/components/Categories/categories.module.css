@@ -29,3 +29,8 @@ button:hover {
 .panel {
   height: 100vh;
 }
+
+.panel-button {
+  position: fixed;
+  left: 0;
+}

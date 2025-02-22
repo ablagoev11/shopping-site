@@ -5,23 +5,26 @@ import style from "./categories.module.css";
 import { Link } from "react-router-dom";
 function Categories() {
   const { data, isLoading, error } = useCategoriesData();
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
   return (
-    <SidePanel image={image} name={"category"} position={"left"} full={true} className={style.panel}>
+    <SidePanel
+      image={image}
+      name={"category"}
+      position={"left"}
+      full={true}
+      className={style.panel}
+      buttonStyle={style["panel-button"]}
+    >
       <div className={style.categories}>
+        {isLoading && <div>Loading...</div>}
+        {error && <div>Error: {error.message}</div>}
         {data.map((category) => (
           <Link
-            to={`/category/${category}`}
-            key={category}
+            to={`/category/${category.id}`}
+            key={category.id}
             className={style.link}
           >
-            {category}
+            {category.name}
           </Link>
         ))}
       </div>

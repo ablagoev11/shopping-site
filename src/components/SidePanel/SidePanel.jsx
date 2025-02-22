@@ -1,8 +1,16 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import style from "./panel.module.css";
 import closeImage from "../../assets/211652_close_icon.svg";
-
-function SidePanel({ image, name, position, full = true, children }) {
+import PropTypes from "prop-types";
+function SidePanel({
+  image,
+  name,
+  position,
+  full = true,
+  children,
+  container,
+  buttonStyle,
+}) {
   const [open, setOpen] = useState(false);
 
   const positionClass = `${full ? "full-" : ""}${position}`;
@@ -21,7 +29,7 @@ function SidePanel({ image, name, position, full = true, children }) {
           e.stopPropagation();
           setOpen(true);
         }}
-        className={style["panel-button"]}
+        className={`${style["panel-button"]} ${buttonStyle}`}
       >
         <img src={image} alt={name} />
       </button>
@@ -37,11 +45,19 @@ function SidePanel({ image, name, position, full = true, children }) {
               <img src={closeImage} alt="close" />
             </button>
           </div>
-          {children}
+          <div className={container}>{children}</div>
         </div>
       </div>
     </div>
   );
 }
-
+SidePanel.propTypes = {
+  image: PropTypes.string,
+  name: PropTypes.string,
+  position: PropTypes.oneOf(["left", "right"]),
+  full: PropTypes.bool,
+  children: PropTypes.node,
+  container: PropTypes.string,
+  buttonStyle: PropTypes.string,
+};
 export default SidePanel;

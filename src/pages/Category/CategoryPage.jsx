@@ -5,7 +5,7 @@ import Product from "../../components/Product/Product";
 import axios from "axios";
 import style from "../product-page.module.css";
 function CategoryPage() {
-  const { category } = useParams();
+  const { id } = useParams();
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -14,9 +14,10 @@ function CategoryPage() {
     const fetchCategoryData = async () => {
       try {
         const response = await axios.get(
-          `https://fakestoreapi.com/products/category/${category}`
+          `https://api.escuelajs.co/api/v1/categories/${id}/products`
         );
         setData(response.data);
+        console.log(response.data);
       } catch (error) {
         setError(error);
       } finally {
@@ -24,9 +25,10 @@ function CategoryPage() {
       }
     };
     fetchCategoryData();
-  }, [category]);
+  }, [id]);
   return (
     <div className={style.container}>
+      {data.length === 0 && !isLoading && <h2>No products found</h2>}
       {isLoading && <div>Loading...</div>}
       {error && <div>Error: {error.message}</div>}
       {data.map((categoryData) => (

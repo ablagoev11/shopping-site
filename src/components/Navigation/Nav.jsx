@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
 import style from "./nav.module.css";
-import SidePanel from "../SidePanel/SidePanel";
-import image from "../../assets/shopping-bag-add-icon.svg";
+import Cart from "../Cart/Cart";
+import logo from "../../assets/shoplogo-freelogovectors.net_.png";
+
 function Nav() {
   return (
     <nav className={style.nav}>
       <Link to="/" className={style.link}>
-        Home
+        <img src={logo} alt="home" className={style.logo} />
       </Link>
-      <SidePanel image={image} name={"cart"} position={"right"} full={false}>
-        <h1>HAHAH</h1>
-      </SidePanel>
+      <Cart />
     </nav>
   );
 }

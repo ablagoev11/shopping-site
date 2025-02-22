@@ -5,15 +5,18 @@ import routes from "./routes";
 import "./index.css";
 import { CategoriesDataProvider } from "./providers/CategoriesDataProvider";
 import { ProductsDataProvider } from "./providers/ProductsDataProvider";
+import { CartProvider } from "./providers/CartProvider";
 
 const router = createBrowserRouter(routes);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ProductsDataProvider>
-      <CategoriesDataProvider>
-        <RouterProvider router={router} />
-      </CategoriesDataProvider>
-    </ProductsDataProvider>
+    <CartProvider>
+      <ProductsDataProvider>
+        <CategoriesDataProvider>
+          <RouterProvider router={router} />
+        </CategoriesDataProvider>
+      </ProductsDataProvider>
+    </CartProvider>
   </StrictMode>
 );

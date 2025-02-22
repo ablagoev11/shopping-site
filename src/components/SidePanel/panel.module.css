@@ -13,8 +13,6 @@
 
 .drawer {
   position: fixed;
-  max-width: 300px;
-  width: 100%;
   background-color: var(--main-color);
   top: 0;
   z-index: 100;
@@ -22,6 +20,7 @@
   will-change: opacity, transform;
   transition: opacity 0.5s, transform 0.5s;
   opacity: 0;
+  width: min(540px, calc(100% - 12px));
 }
 
 .panel-button {
@@ -68,11 +67,13 @@
 .full-left {
   composes: left;
   height: 99%;
+  max-width: 300px;
 }
 
 .full-right {
   composes: right;
   height: 99%;
+  max-width: 300px;
 }
 .closed {
   transform: translateX(0%);

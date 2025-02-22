@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 
 const ProductsDataContext = createContext(null);
 
@@ -11,10 +12,9 @@ function ProductsDataProvider({ children }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://fakestoreapi.com/products"
+          "https://api.escuelajs.co/api/v1/products"
         );
         setData(response.data);
-        console.log(response.data);
       } catch (error) {
         setError(error);
       } finally {
@@ -33,4 +33,7 @@ function ProductsDataProvider({ children }) {
 
 const useProductsData = () => useContext(ProductsDataContext);
 
+ProductsDataProvider.propTypes = {
+  children: PropTypes.element.isRequired,
+};
 export { ProductsDataProvider, useProductsData, ProductsDataContext };
