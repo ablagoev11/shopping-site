@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 :root {
@@ -9,9 +9,6 @@ body {
   --secondary-color: lightgreen;
   --third-color: black;
   overflow-x: hidden;
-}
-#root {
-  height: 100%;
 }
 
 body::-webkit-scrollbar {
